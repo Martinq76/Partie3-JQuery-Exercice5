@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <script src="assets\js\jquery-3.3.1.min.js"></script>
+  <title>Partie3 JQuery Exercice5</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <input type="text" name="form" value="" id="form" />
+  <div id="square"></div>
+
+  <script>
+    $(function() {
+      var windowWidth = $(window).width();
+      var windowHeight = $(window).height();
+
+      $('#form').keydown(function(e) {
+        var squarePositionX = $('#square').offset().left;
+        var squarePositionY = $('#square').offset().top;
+
+        switch (e.keyCode) {
+          case 37: //Flèche du haut
+            if (squarePositionX <= 0) {
+              $('#square').css('margin-left', windowWidth-50);
+            } else {
+              $('#square').css('margin-left', '-=10px');
+            }
+            break;
+          case 39: //Flèche de droite
+            if (squarePositionX >= (windowWidth-50)) {
+              $('#square').css('margin-left', '0');
+            } else {
+              $('#square').css('margin-left', '+=10px');
+            }
+            break;
+          case 38: //Flèche du haut
+            if (squarePositionY <= 0) {
+              $('#square').css('margin-top', windowHeight-50);
+            } else {
+              $('#square').css('margin-top', '-=10px');
+            }
+            break;
+          case 40: //Flèche du bas
+            if (squarePositionY >= (windowHeight-50)) {
+              $('#square').css('margin-top', '0');
+            } else {
+              $('#square').css('margin-top', '+=10px');
+            }
+            break;
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
